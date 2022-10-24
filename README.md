@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NetNinja Next.js and Contentful tutorial
 
-## Getting Started
+## Notes and key learning points
 
-First, run the development server:
+### Tutorial 2 - Contentful Models
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- Contentful is a 'headless' CMS - a CMS without front end templates attached
+- Still gives us a place to create data - but doesn't push data into a theme, etc
+- Just stores the data - can reach out from our website to fetch it
+- Create a 'content model' for a recipe / content type
+- Then 'Add field' - 'text' - add a title then 'create and configure'
+- In the Validation tab - make the field unique as our 'slugs' for routing will be based on the title, so each slug and title must be unique
+- For the next field, select 'text' again but call it 'Slug'
+- Select appearance as 'Slug' - will take the title field and auto-generate a slug for us
+- For the Method select 'Rich Text' which allows formatting of the recipe
+- Once completed all fields - save
+- To add a recipe go to 'Content'
+- To upload images go to 'Media' - add multiple assets
+- Check all images and then 'Publish'
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Tutorial 3 - Contentful site build
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Note that Next.sj automatically grabs environment variables and adds them to the process object
+- Remember to restart the server after adding environment variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Tutorial 5 - Using images from Contentful
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Built in image component that comes with Next.js
+- Auto-optimises our image content
+- Remember to add width and height properties
+- In order to use the Next.js Image component with images from an external domain - have to 'whitelist' that domain
+- Need to add `["images.ctfassets.net"]` to the `next.config.js` file
+- Note that the Image component facilitates lazy loading of the images
 
-## Learn More
+### Tutorial 6 - Styled JSX
 
-To learn more about Next.js, take a look at the following resources:
+- Can add styles into our JSX templates
+- Scopes the styles to the relevant component only
+- The styles only apply inside the component where we declare the styled JSX
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Tutorial 7 - Generating Paths
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Note that the `createClient()` function is not included within `getStaticProps` in the `[slug.js]` file, as need to use the data in two seperate functions
+- If include it in a single function then would only be scoped to that individual function
+- Within `getStaticProps` destructure the params property from the context object returned from `getStaticPaths`
