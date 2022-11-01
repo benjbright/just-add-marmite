@@ -43,3 +43,7 @@
 - Note that the `createClient()` function is not included within `getStaticProps` in the `[slug.js]` file, as need to use the data in two seperate functions
 - If include it in a single function then would only be scoped to that individual function
 - Within `getStaticProps` destructure the params property from the context object returned from `getStaticPaths`
+
+### Tutorial 8 - Rich Text content
+
+- https://www.npmjs.com/package/@contentful/rich-text-react-renderer
