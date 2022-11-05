@@ -47,3 +47,14 @@
 ### Tutorial 8 - Rich Text content
 
 - https://www.npmjs.com/package/@contentful/rich-text-react-renderer
+
+### Tutorial 10 - Incremental Static Regeneration
+
+- On existing site, if we change the content in Contentful it won't pick up changes
+- Static pages based on the initial build
+- To show new data would ordinarily have to manually push up to Github and then Vercel would redeploy
+- In Next.js can use 'Incremental Static Regeneration'
+- Next.js automatically generates new pages and regenerates current pages when data is updated
+- The page visit triggers Next.js to re-fetch the page data in the background
+- The static page is then regenerated ready for the next visit
+- Add the `revalidate` key to the `getStaticProps` return object
