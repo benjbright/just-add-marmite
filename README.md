@@ -58,3 +58,14 @@
 - The page visit triggers Next.js to re-fetch the page data in the background
 - The static page is then regenerated ready for the next visit
 - Add the `revalidate` key to the `getStaticProps` return object
+- NOTE - this functionality only regenerates pages that already exist
+- E.g. won't show correctly on the 'slug' for a new recipe
+
+### Tutorial 11 - Fallback Pages
+
+- Fallback pages are placeholder content while Next.js fetches new data for the page
+- Once the data is fetched, Next.js pumps it into the page component so the page can be rendered
+- Don't need to refresh the page
+- In the background, Next.js generates a new static page for the new data - ready for the next visit
+- Change the `getStaticPaths` return object to include `fallback: true`
+- Next.js reruns the `getStaticProps` function
