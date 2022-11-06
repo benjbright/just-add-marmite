@@ -69,3 +69,7 @@
 - In the background, Next.js generates a new static page for the new data - ready for the next visit
 - Change the `getStaticPaths` return object to include `fallback: true`
 - Next.js reruns the `getStaticProps` function
+
+### Tutorial 12 - Conditional Redirects
+
+- Need to update the `getStaticProps` function to add a new return statement if no slug found
