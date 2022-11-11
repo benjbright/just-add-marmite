@@ -73,3 +73,12 @@
 ### Tutorial 12 - Conditional Redirects
 
 - Need to update the `getStaticProps` function to add a new return statement if no slug found
+
+### Tutorial 13 - Custom 404 Page
+
+- `useRouter` hook in Next.js
+- `const router = useRouter()` - gives us a router object (instance of the router)
+- Method on this object to redirect a user
+- React `useEffect` hook - fires a function when the component first renders
+- If leave the dependency array empty it will only fire on initial render
+- Note when using `setTimout()` don't forget to clear the timeout with a return statement
